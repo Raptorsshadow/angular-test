@@ -1,0 +1,7 @@
+<ul class="posts">
+  <li *ngFor="let post of posts">
+    <a href="{{post.data.permalink}}">
+      <span class="badge">{{post.data.id}}</span> {{post.data.title}}
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,10 @@
+<div *ngIf="post">
+
+  <h2>{{post.data.title | uppercase}}</h2>
+  <div><span>id: </span>{{post.data.id}}</div>
+  <div>
+  </div>
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>
+
+</div>
