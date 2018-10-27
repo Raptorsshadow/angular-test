@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h3 class="bg-primary text-white p-3">{{getName()}}'s To Do List</h3>
+<div class="my-1">
+  <input class="form-control"/>
+  <button class="btn btn-primary mt-1">Add</button>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of getTodos(); let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{todo.action}}</td>
+      <td [ngSwitch]="todo.done">
+        <span *ngSwitchCase="true">Yes</span>
+        <span *ngSwitchDefault>No</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
