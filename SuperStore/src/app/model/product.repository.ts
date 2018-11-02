@@ -10,9 +10,7 @@ export class ProductRepository {
 	constructor(private dataSource: RestDataSource) {
 		dataSource.getProducts().subscribe(data => {
 			this.products = data;
-			this.categories = data
-								.map(p => p.category)
-								.filter((c, index, array) => array.indexOf(c) == index).sort();
+			this.updateCategories();
 		});
 	}
 
@@ -28,6 +26,12 @@ export class ProductRepository {
 		return this.categories;
 	}
 
+	updateCategories() {
+		this.categories = this.products
+			.map(p => p.category)
+			.filter((c, index, array) => array.indexOf(c) == index).sort();
+	}
+
 	saveProduct(product: Product) {
 		if(product.id == null || product.id == 0) {
 			this.dataSource.saveProduct(product).subscribe(p => this.products.push(p));
@@ -36,6 +40,7 @@ export class ProductRepository {
 				this.products.splice(this.products.findIndex(p => p.id == product.id), 1, product);
 			});
 		}
+		this.updateCategories();
 	}
 
 	deleteProduct(id: number) {
