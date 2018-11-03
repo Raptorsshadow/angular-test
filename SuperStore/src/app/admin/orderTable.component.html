@@ -23,7 +23,7 @@
                 <td>{{o.zip}}</td>
                 <th>Product</th><th>Quantity</th>
                 <td>
-                    <button class="btn btn-warning m-1" (click)="markShipped(o)">Ship</button>
+                    <button class="btn btn-warning m-1" (click)="markShipped(o)"[disabled]="o.shipped">{{ o.shipped ? 'Shipped' : 'Ship' }}</button>
                     <button class="btn btn-danger m-1" (click)="delete(o.id)">Delete</button>
                 </td>
             </tr>
