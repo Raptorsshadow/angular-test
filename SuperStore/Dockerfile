@@ -5,7 +5,7 @@ COPY dist/SuperStore /usr/src/SUPERSTORE/dist/SuperStore
 COPY ssl /usr/src/SUPERSTORE/ssl
 
 COPY authMiddleware.js /usr/src/SUPERSTORE/
-copy serverData.json /usr/src/SUPERSTORE/
+copy serverdata.json /usr/src/SUPERSTORE/
 COPY server.js /usr/src/SUPERSTORE/server.js
 COPY deploy-package.json /usr/src/SUPERSTORE/package.json
 
