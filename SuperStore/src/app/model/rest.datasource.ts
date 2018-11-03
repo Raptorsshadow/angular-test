@@ -14,7 +14,8 @@ export class RestDataSource {
 	baseUrl: string;
 	auth_token: string;
 	constructor(private http: HttpClient) {
-		this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+		//this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+		this.baseUrl = '/api/';
 	}
 
 	getProducts(): Observable<Product[]> {

@@ -4,6 +4,9 @@
 /dist
 /tmp
 /out-tsc
+/ssl/*.pem
+/ssl/*.key
+/ssl/*.crt
 
 # dependencies
 /node_modules
