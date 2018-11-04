@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order } from './order.model';
-//import { StaticDataSource } from './static.datasource';
+// import { StaticDataSource } from './static.datasource';
 import { RestDataSource } from './rest.datasource';
 
 @Injectable()
@@ -10,8 +10,8 @@ export class OrderRepository {
 	private orders: Order[] = [];
 	constructor(private dataSource: RestDataSource) {}
 
-	getOrders() :Order [] {
-		if(!this.loaded) {
+	getOrders(): Order [] {
+		if (!this.loaded) {
 			this.loadOrders();
 		}
 		return this.orders;
@@ -27,14 +27,14 @@ export class OrderRepository {
 	}
 
 	updateOrder(order: Order) {
-		this.dataSource.updateOrder(order).subscribe(order => {
-			this.orders.splice(this.orders.findIndex(o => o.id == order.id), 1, order);
-		})
+		this.dataSource.updateOrder(order).subscribe(ordr => {
+			this.orders.splice(this.orders.findIndex(o => o.id === ordr.id), 1, ordr);
+		});
 	}
 
 	deleteOrder(id: number) {
 		this.dataSource.deleteOrder(id).subscribe(order => {
-			this.orders.splice(this.orders.findIndex(o => id == o.id));
-		})
+			this.orders.splice(this.orders.findIndex(o => id === o.id));
+		});
 	}
 }

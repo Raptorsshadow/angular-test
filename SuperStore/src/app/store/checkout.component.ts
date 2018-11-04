@@ -8,13 +8,13 @@ import { Order } from '../model/order.model';
 	styleUrls: ['checkout.component.css']
 })
 export class CheckoutComponent {
-	orderSent: boolean = false;
-	submitted: boolean = false;
+	orderSent = false;
+	submitted = false;
 	constructor(public repository: OrderRepository, public order: Order) {}
 
 	submitOrder(form: NgForm) {
 		this.submitted = true;
-		if(form.valid) {
+		if (form.valid) {
 			this.repository.saveOrder(this.order).subscribe(order => {
 				this.order.clear();
 				this.orderSent = true;

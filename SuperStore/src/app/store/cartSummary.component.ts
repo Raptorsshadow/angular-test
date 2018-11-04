@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Cart } from '../model/cart.model';
 
 @Component({
-	selector: 'cart-summary',
+	selector: 'app-cart-summary',
 	templateUrl: 'cartSummary.component.html'
 })
 export class CartSummaryComponent {

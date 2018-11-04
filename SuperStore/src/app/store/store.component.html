@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col bg-dark text-white">
 			<a class="navbar-brand">SPORTS STORE</a>
-			<cart-summary></cart-summary>
+			<app-cart-summary></app-cart-summary>
 		</div>
 	</div>
 	<div class="row">
@@ -31,7 +31,7 @@
 				</select>
 			</div>
 			<div class="btn-group float-right">
-				<button *counter="let page of pageCount" (click)="changePage(page)" class="btn btn-outline-primary" [class.active]="page === selectedPage">
+				<button *appCounter="let page of pageCount" (click)="changePage(page)" class="btn btn-outline-primary" [class.active]="page === selectedPage">
 					{{page}}
 				</button>
 			</div>

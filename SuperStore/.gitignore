@@ -4,9 +4,6 @@
 /dist
 /tmp
 /out-tsc
-/ssl/*.pem
-/ssl/*.key
-/ssl/*.crt
 
 # dependencies
 /node_modules
@@ -22,9 +19,9 @@
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
+.vscode/settings.json
 !.vscode/tasks.json
-!.vscode/launch.json
+.vscode/launch.json
 !.vscode/extensions.json
 
 # misc
@@ -40,3 +37,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# SSL Certs
+/ssl/*.pem
+/ssl/*.key
+/ssl/*.crt

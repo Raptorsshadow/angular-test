@@ -14,17 +14,17 @@ export class AuthComponent {
 	constructor(private router: Router, private auth: AuthService) {}
 
 	authenticate(form: NgForm) {
-		if(form.valid) {
-			//perform authenticate
+		if (form.valid) {
+			// perform authenticate
 			this.auth.authenticate(this.username, this.password)
 				.subscribe(response => {
-					if(response) {
+					if (response) {
 						this.router.navigateByUrl('/admin/main');
 					}
-					this.errorMessage = "Authentication Failure";
-				})
+					this.errorMessage = 'Authentication Failure';
+				});
 		} else {
-			this.errorMessage = "Form Data Invalid";
+			this.errorMessage = 'Form Data Invalid';
 		}
 	}
 }

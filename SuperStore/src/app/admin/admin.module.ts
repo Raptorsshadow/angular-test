@@ -10,16 +10,16 @@ import { ProductEditorComponent } from './productEditor.component';
 import { OrderTableComponent } from './orderTable.component';
 import { OrderEditorComponent } from './orderEditor.component';
 
-let routing = RouterModule.forChild([
+const routing = RouterModule.forChild([
 	{path: 'auth', component: AuthComponent},
 	{path: 'main', component: AdminComponent, canActivate: [AuthGuard], children: [
-		{path: "products/:mode/:id", component: ProductEditorComponent},
-		{path: "products/:mode", component: ProductEditorComponent},
-		{path: "products", component: ProductTableComponent},
-		{path: "orders/:mode/:id", component: OrderEditorComponent},
-		{path: "orders/:mode", component: OrderEditorComponent},
-		{path: "orders", component: OrderTableComponent},
-		{path: '**', redirectTo: "products"}
+		{path: 'products/:mode/:id', component: ProductEditorComponent},
+		{path: 'products/:mode', component: ProductEditorComponent},
+		{path: 'products', component: ProductTableComponent},
+		{path: 'orders/:mode/:id', component: OrderEditorComponent},
+		{path: 'orders/:mode', component: OrderEditorComponent},
+		{path: 'orders', component: OrderTableComponent},
+		{path: '**', redirectTo: 'products'}
 	]},
 	{path: '**', redirectTo: 'auth'}
 	]);

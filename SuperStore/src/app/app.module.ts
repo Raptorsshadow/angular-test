@@ -12,17 +12,17 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
-  imports: [
-    BrowserModule, StoreModule, RouterModule.forRoot([
-    	{path:'store', component: StoreComponent, canActivate: [StoreFirstGuard]},
-    	{path:'cart', component: CartDetailComponent, canActivate: [StoreFirstGuard]},
-    	{path:'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard]},
-      {path:'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [StoreFirstGuard]},
-    	{path:'**', redirectTo: '/store'}
-    	]), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-  ],
-  providers: [StoreFirstGuard],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
+	imports: [
+		BrowserModule, StoreModule, RouterModule.forRoot([
+			{path: 'store', component: StoreComponent, canActivate: [StoreFirstGuard]},
+			{path: 'cart', component: CartDetailComponent, canActivate: [StoreFirstGuard]},
+			{path: 'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard]},
+			{path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [StoreFirstGuard]},
+			{path: '**', redirectTo: '/store'}
+			]), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+	],
+	providers: [StoreFirstGuard],
+	declarations: [AppComponent],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

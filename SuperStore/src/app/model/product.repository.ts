@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
-//import { StaticDataSource } from './static.datasource';
+// import { StaticDataSource } from './static.datasource';
 import { RestDataSource } from './rest.datasource';
 
 @Injectable()
@@ -14,30 +14,30 @@ export class ProductRepository {
 		});
 	}
 
-	getProducts(category: string = null) : Product[] {
-		return this.products.filter(p => category == null || category == p.category);
+	getProducts(category: string = null): Product[] {
+		return this.products.filter(p => category === null || category === p.category);
 	}
 
-	getProduct(id: number) : Product {
-		return this.products.find(p => id == p.id);
+	getProduct(id: number): Product {
+		return this.products.find(p => id === p.id);
 	}
 
-	getCategories() : string [] {
+	getCategories(): string [] {
 		return this.categories;
 	}
 
 	updateCategories() {
 		this.categories = this.products
 			.map(p => p.category)
-			.filter((c, index, array) => array.indexOf(c) == index).sort();
+			.filter((c, index, array) => array.indexOf(c) === index).sort();
 	}
 
 	saveProduct(product: Product) {
-		if(product.id == null || product.id == 0) {
+		if (product.id === null || product.id === 0) {
 			this.dataSource.saveProduct(product).subscribe(p => this.products.push(p));
 		} else {
 			this.dataSource.updateProduct(product).subscribe(p => {
-				this.products.splice(this.products.findIndex(p => p.id == product.id), 1, product);
+				this.products.splice(this.products.findIndex(p2 => p2.id === product.id), 1, product);
 			});
 		}
 		this.updateCategories();
@@ -45,7 +45,7 @@ export class ProductRepository {
 
 	deleteProduct(id: number) {
 		this.dataSource.deleteProduct(id).subscribe(p => {
-			this.products.splice(this.products.findIndex(p => p.id == id), 1);
-		})
+			this.products.splice(this.products.findIndex(p2 => p2.id === id), 1);
+		});
 	}
 }
